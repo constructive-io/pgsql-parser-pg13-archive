@@ -11,7 +11,7 @@ jobs:
     # Docker Hub image that `container-job` executes in
     # container: node:latest
     # container: pyramation/node-gyp
-    container: node:22-alpine
+    container: node:22.23.5-bookworm
 
     # Service containers to run with `container-job`
     services:
@@ -36,9 +36,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: deps
-        run: apk update && apk add bash git python3-dev make g++
 
       - name: deps
         run: yarn
